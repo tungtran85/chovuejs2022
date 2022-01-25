@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HocVueJs002", "HocVueJs002.csproj", "{6486F0F4-35EE-4502-A3C6-FEC46D08FDCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6486F0F4-35EE-4502-A3C6-FEC46D08FDCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6486F0F4-35EE-4502-A3C6-FEC46D08FDCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6486F0F4-35EE-4502-A3C6-FEC46D08FDCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6486F0F4-35EE-4502-A3C6-FEC46D08FDCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94DB33CD-A57D-454D-8C3B-6302BDC72514}
+	EndGlobalSection
+EndGlobal

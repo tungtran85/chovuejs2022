@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .dachon{
+        color:red;
+    }
+</style>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div id="idAppVuejs">
+    <input type="text"  v-model="changeName" /> <br />
+
+    <h2 class="dachon"> Lap trinh vuejs</h2>
+    @*<h2 :class="dachon: selected"> Lap trinh vuejs 2</h2>*@
+    <br />
+    @*<button @click="inputDisable = ! inputDisable"> Enable/Disable</button>*@
+    <input type="text" :disabled="inputDisable" value="This text is disable" />
+    <br />
+   <span v-bind:myproperty="myVariable">Binding property tag html</span>
+   <br />
+   <span :myproperty="myVariable">Binding property tag html ngang gon</span>
+   <br />
+
+   <span>Binding truc tiep bien</span>
+   {{message}} 
+   <br />
+   Name is change when you input text:
+   <br />
+   <input type='text' v-model="message"/>
+   
+   <br />
+
+@*   <button @click ="isShowName = !isShowName" >Show/Hide New</button>
+   <div v-show="isShowName">
+       Tran Thanh Tung
+   </div>*@
+   <br />
+   <input type="text" v-model="listName[0]" />
+   <input type="text" v-model="listName[1]" />
+   <br />
+
+   <input type="text" v-model="chanle.Name"/>
+   <input type="text" v-model="chanle.Tuoi"/>
+   <button v-on:click=" chanle.Name='1', chanle.Tuoi='2' ">
+       Chanle.Name = 1, Chanle.Tuoi = 2
+   </button>
+   <br />
+   <button v-on:click="dosomething()">
+       Click Me
+   </button>
+   <br />
+
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    var app = new Vue(
+        {
+            el: '#idAppVuejs',
+            data: {
+              chanle: {Name:'chanelName', Tuoi: 'chanaltuoi'},
+              message : 'Enter message here!',
+              isShowName: true,
+              myVariable: "value variable",
+              inputDisable: true,
+              selected: true,
+              changeName: 'name will be change.',
+              listName: ['name so 1','name so 2']
+            }
+}); 
+</script>
