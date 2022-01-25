@@ -6,6 +6,11 @@
     .dachon{
         color:red;
     }
+    .xongroi
+    {
+        text-decoration: line-through;
+        color:red;
+    }
 </style>
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
@@ -53,6 +58,43 @@
        Click Me
    </button>
    <br />
+   <form action="/abc" >
+       <span>Do something</span>
+       <input type='text' v-model="message"/>
+       <br />
+       <button type="submit" v-on:click.prevent=" message='from khong submit nua, ma chi an su kien nay thoi.' ">
+           button in form
+       </button>
+   </form>
+   <br />
+
+   <input ref="anhxaelement" type="text" value="chi can goi this.$fres.anhxaelement = $('#ID') "  />
+   <br />
+   <div v-show="an_hien">Lap Trinh Vien: an/hien theo bien an_hien v-show / v-hide</div>
+   <button v-on:click="an_hien = ! an_hien" >An/Hien</button>
+   <br /><br />
+   <div v-if="an_hien"> v-if: khong co element. khac v-show: chi set display:none  </div>
+   <button v-on:click="an_hien = ! an_hien" >Add element cua v-if</button>
+
+   <br />
+   <button v-on:click="an_hien = ! an_hien" >only show one
+       <span v-if="an_hien">An</span>
+       <span v-else>Hien</span>
+   </button>
+   <br /> List rendering: v-for (v-bind:key)<br />
+   <div v-for="(task, index ) in tasks" :key="index">
+       {{task}}
+   </div>
+   <br /><br />
+   TODO List:
+   <br />
+   <input type="text" v-model="newTask" />
+   <button v-on:click="todotasks.push({noidung:newTask, trangthai:false})">Them task</button>
+   <br />
+   <div v-for="(todo, index ) in todotasks" :key="index">
+       <input type="checkbox" v-model="todo.trangthai" />
+       <span :class="{xongroi: todo.trangthai}"> {{todo.noidung}} </span> 
+   </div>
 
 </div>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -61,6 +103,16 @@
         {
             el: '#idAppVuejs',
             data: {
+              newTask:'',
+              todotasks: [
+                {noidung:'di cho', trangthai:false },
+                {noidung:'di ve sinh', trangthai:false },
+                {noidung:'code', trangthai:false },
+                {noidung:'nau an', trangthai:false},
+                {noidung:'ngu', trangthai:false}
+              ],
+              tasks: ['di cho','nau an','di ve sinh','code','ngu'],
+              an_hien: true,
               chanle: {Name:'chanelName', Tuoi: 'chanaltuoi'},
               message : 'Enter message here!',
               isShowName: true,
