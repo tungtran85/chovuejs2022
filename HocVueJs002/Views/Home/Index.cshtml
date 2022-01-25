@@ -90,12 +90,38 @@
    <br />
    <input type="text" v-model="newTask" />
    <button v-on:click="todotasks.push({noidung:newTask, trangthai:false})">Them task</button>
+   
    <br />
    <div v-for="(todo, index ) in todotasks" :key="index">
        <input type="checkbox" v-model="todo.trangthai" />
        <span :class="{xongroi: todo.trangthai}"> {{todo.noidung}} </span> 
    </div>
-
+   <br />
+   Mothods: nho phai co "s".
+   <button v-on:click="addTask()">Them task = method</button>
+   <br />
+   <br />
+   <span>Watch la gi: theo doi su thay doi du lieu.</span>
+   <br />
+   <span>Hooks - mounted </span> 
+   <br />
+   <span>Component -  </span> 
+   <br />
+   <span>Props: day du lieu tu cha vo component con</span>
+   <hr />
+   <span>Danh sach viet gon: </span>
+   <br />
+   Filter: 
+   <br />
+   Bien: <span>{{tongtien}}</span>
+   <br />
+   Display: 
+   <span>
+       {{tongtien | dauChamPhanTach}}
+   </span>
+   <br />
+   Filter de format data.
+   <button v-on:click="tongtien += 1000">Cong them 1k</button>
 </div>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
@@ -103,6 +129,7 @@
         {
             el: '#idAppVuejs',
             data: {
+              tongtien: 1000000,
               newTask:'',
               todotasks: [
                 {noidung:'di cho', trangthai:false },
@@ -121,6 +148,29 @@
               selected: true,
               changeName: 'name will be change.',
               listName: ['name so 1','name so 2']
+            },
+            methods: {
+                addTask: function(){
+                    this.todotasks.push({ 
+                        noidung: this.newTask, 
+                        trangthai:false
+                    });
+                }
+            },
+            watch: {
+                newTask: function(newvalue, oldValue){
+                    //console.log('new task change');
+                    console.log(oldValue);
+                    console.log(newvalue);
+                }
+            },
+            mounted(){
+                //call api thi show waiting.
+            },
+            filters: {
+                dauChamPhanTach: function(sotien){
+                    return sotien.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,'$&,');
+                }
             }
 }); 
 </script>
