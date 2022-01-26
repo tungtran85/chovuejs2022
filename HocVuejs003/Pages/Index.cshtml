@@ -1,0 +1,74 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<br />
+<hr />
+<br />
+
+<div id="app">
+    <p>
+        {{message}}
+    </p>
+    <input type="text" v-on:input="changeValue" />
+    <hr /> <br />
+    <span>
+       @* {{sayHello()}}*@
+    </span>
+    <br />
+    <p>{{layTitle()}}</p>
+    <hr />
+    <p>Vue data tuong tac voi tag html</p>
+    <p>Vue tuong tac voi property tag htm thong qua "v-bind". exp: v-bind:href="googleLink"</p>
+    <a v-bind:href="googleLink">Link GG</a>
+    <hr />
+    <span>chi su dung gia tri 1 lan</span> <br />
+    "Message display 1 lan:"
+    <p v-once> {{message}}  </p>
+    call method sayHello: @* <p> {{sayHello()}}</p>*@
+    <hr />
+    show ma htm: {{testMaHTML}}
+    <br />
+    dung ma htm: 
+    <p v-html="testMaHTML"></p>
+    <br />
+    <h1>Bam nut de tang gia tri</h1>
+    <button v-on:click="tangGiaTri">An Di</button>
+    <p>Gia Tri: {{dem}}</p>
+</div>
+
+<script>
+     var app = new Vue(
+     {
+        el: "#app",
+        data: {
+            message: 'Do you wanna build a Vue app?',
+            title: "Day la Title",
+            googleLink: "https://www.google.com",
+            testMaHTML: '<a href="https...abc" > Get passowrd </a>',
+            dem: 0,
+        },
+        methods: {
+            changeValue: function( event ){
+                this.message = event.target.value;
+            },
+            sayHello: function (){
+                //document.write("Say Hello");
+                this.message = "Say hello!";
+                return this.message;
+            },
+            layTitle: function(){
+                return this.title;
+            },
+            tangGiaTri: function (){
+                this.dem ++;
+            },
+        }
+     });
+</script>
